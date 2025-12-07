@@ -1,10 +1,10 @@
-﻿namespace DustInTheWind.EfCoreLazyLoadingDemo.DataAccess;
+﻿namespace DustInTheWind.EfCoreLazyLoadingDemo.Domain;
 
 internal class Order
 {
     public Guid Id { get; set; }
 
-    public string ProductName { get; set; }
+    public DateTime Date { get; set; }
 
     public Guid CustomerId { get; set; }
 

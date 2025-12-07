@@ -1,5 +1,6 @@
 ﻿using DustInTheWind.EfCoreLazyLoadingDemo.DataAccess;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DustInTheWind.EfCoreLazyLoadingDemo;
 
@@ -7,22 +8,12 @@ internal static class Program
 {
     private static void Main(string[] args)
     {
-        const string connectionString = "Server=localhost;Database=EfLazyLoadingDemo;Trusted_Connection=true;MultipleActiveResultSets=true;TrustServerCertificate=True";
+        ServiceCollection serviceCollection = new();
+        Setup.ConfigureServices(serviceCollection);
 
-        DbContextOptions<DemoDbContext> options = new DbContextOptionsBuilder<DemoDbContext>()
-            .UseSqlServer(connectionString)
-            .Options;
+        IServiceProvider serviceProvider = serviceCollection.BuildServiceProvider();
 
-        using DemoDbContext demoDbContext = new(options);
-        
-        //foreach (Customer customer in demoDbContext.Customers)
-        //{
-        //    Console.WriteLine($"Customer: {customer.Name}");
-        //}
-
-        foreach (Order order in demoDbContext.Orders)
-        {
-            Console.WriteLine($"Order: {order.ProductName}");
-        }
+        // Instantiate and execute a use case.
+        // ...
     }
 }

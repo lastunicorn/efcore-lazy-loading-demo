@@ -1,4 +1,4 @@
-﻿namespace DustInTheWind.EfCoreLazyLoadingDemo.DataAccess;
+﻿namespace DustInTheWind.EfCoreLazyLoadingDemo.Domain;
 
 internal class Customer
 {
