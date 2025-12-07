@@ -19,6 +19,8 @@ internal static class Setup
                 DbSeeding dbSeeding = new(dbContext);
                 dbSeeding.Execute();
             });
+
+            options.UseLazyLoadingProxies();
         });
 
         serviceCollection.AddTransient<DisplayOrdersUseCase>();
