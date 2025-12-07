@@ -20,9 +20,9 @@ internal class DisplayOrdersUseCase
         IQueryable<Order> query = demoDbContext.Orders
             .Where(x => x.Date >= startDate);
 
-        List<Order> orders = await query.ToListAsync();
+        //List<Order> orders = await query.ToListAsync();
 
-        DisplayOrder(orders);
+        DisplayOrder(query);
     }
 
     private static void DisplayOrder(IEnumerable<Order> orders)
