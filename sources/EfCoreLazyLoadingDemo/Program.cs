@@ -1,4 +1,5 @@
 ﻿using DustInTheWind.EfCoreLazyLoadingDemo.DataAccess;
+using DustInTheWind.EfCoreLazyLoadingDemo.UseCases;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -6,7 +7,7 @@ namespace DustInTheWind.EfCoreLazyLoadingDemo;
 
 internal static class Program
 {
-    private static void Main(string[] args)
+    private static async Task Main(string[] args)
     {
         ServiceCollection serviceCollection = new();
         Setup.ConfigureServices(serviceCollection);
@@ -14,6 +15,8 @@ internal static class Program
         IServiceProvider serviceProvider = serviceCollection.BuildServiceProvider();
 
         // Instantiate and execute a use case.
-        // ...
+
+        DisplayOrdersUseCase useCase = serviceProvider.GetRequiredService<DisplayOrdersUseCase>();
+        await useCase.ExecuteAsync();
     }
 }

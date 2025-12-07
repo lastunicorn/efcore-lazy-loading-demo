@@ -1,4 +1,5 @@
 ﻿using DustInTheWind.EfCoreLazyLoadingDemo.DataAccess;
+using DustInTheWind.EfCoreLazyLoadingDemo.UseCases;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -19,5 +20,7 @@ internal static class Setup
                 dbSeeding.Execute();
             });
         });
+
+        serviceCollection.AddTransient<DisplayOrdersUseCase>();
     }
 }
