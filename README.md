@@ -1,12 +1,6 @@
-# Lazy Loading Demo (in Entity Framework Core)
+# EF Core Lazy Loading Demo
 
-## Description
-
-Project created on 2025-11-26 18:20:53
-
-## Getting Started
-
-Add your project description and setup instructions here.
+Shows how to setup and use the Lazy Loading engine in EF Core.
 
 ## License
 
