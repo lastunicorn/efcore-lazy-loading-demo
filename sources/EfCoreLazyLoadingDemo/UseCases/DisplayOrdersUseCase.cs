@@ -18,6 +18,7 @@ internal class DisplayOrdersUseCase
         DateTime startDate = new(2023, 1, 1);
 
         IQueryable<Order> query = demoDbContext.Orders
+            .Include(x => x.Customer)
             .Where(x => x.Date >= startDate);
 
         List<Order> orders = await query.ToListAsync();
